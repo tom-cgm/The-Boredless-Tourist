@@ -88,3 +88,19 @@ def find_attractions(destination,interests):
 # Test, Should return ['LACMA'] Passed
 la_arts = find_attractions("Los Angeles, USA",['art'])
 print(la_arts)
+
+
+# Connecting people to attractions they are interested in
+
+def get_attractions_for_traveler(traveler):
+    traveler_destination = traveler[1] # Seperates data for destination
+    traveler_interests = traveler[2] # Seperates data for interests
+    traveler_attractions = find_attractions(traveler_destination,traveler_interests)
+    interests_string = "Hi " + traveler[0] + ", we think that you would enjoy these places around " + traveler_destination +": "
+    for attraction in traveler_attractions:
+        interests_string = interests_string + "the " + attraction +", "
+    return interests_string
+
+#test functionality
+smills_france = get_attractions_for_traveler(['Dereck Smill','Paris, France',['monument']])
+print(smills_france)
